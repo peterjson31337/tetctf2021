@@ -28,7 +28,7 @@
 - in the second challenge, we exploit another bug on AMF, trigger `readExternal()` or some public `setters`, this allow us to trigger the `setBackupFile` of `TetCTFUtils`
 - `TetCTFUtils.setBackupFile()` execute a `tar` command on arbitrary file on the system, so we need to create and upload a tar symlink file to server with `UploadServlet`
 - Another clever way, we can make use of XXE with `jar:http://host/a.zip!/a.txt` with a custom socket server to make the server save the tmp file, and hang the connection to make the tmp file not deleted for a while, then use the xxe bug with `file://` to listing the directory to view the file name of tmp file, and finally, trigger the setter
-- The last step: when we have created the symlink to the webroot, we just need to write our shell to the file and it would be written to the webroot as our shell, so you can pass all the filter in the `UploadServlet`
+- The last step: when we have created the symlink to the webroot, we just need to write our shell to the file we symlink the our webshell, so you can pass all the filter in the `UploadServlet`
 
 ## on your server run: 
     python jar_xxe_server.py
