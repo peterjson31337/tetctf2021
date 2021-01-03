@@ -24,7 +24,8 @@
 
 
 # AMF2
-
+- tomcat with nginx, the most misconfiguration in 2020, which leading to many RCEs
+- with `/tetctf/dummy/..;/messagebroker` you can bypass nginx 403 and reach AMF endpoints
 - in the second challenge, we exploit another bug on AMF, trigger `readExternal()` or some public `setters`, this allow us to trigger the `setBackupFile` of `TetCTFUtils`
 - `TetCTFUtils.setBackupFile()` execute a `tar` command on arbitrary file on the system, so we need to create and upload a tar symlink file to server with `UploadServlet`
 - Another clever way, we can make use of XXE with `jar:http://host/a.zip!/a.txt` with a custom socket server to make the server save the tmp file, and hang the connection to make the tmp file not deleted for a while, then use the xxe bug with `file://` to listing the directory to view the file name of tmp file, and finally, trigger the setter
