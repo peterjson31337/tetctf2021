@@ -13,7 +13,7 @@
 
 - In the context of AMF, it will catch the Exception while handling the xml, and through it as HTTP Response, we can make use of this to archive XXE error-based
     - For ex: 
-        - `_://` => no protocol exceptio
+        - `_://` => no protocol exception
 
 - Final Exploit
     - using `jar://` to load dtd inside some Tomcat jars
